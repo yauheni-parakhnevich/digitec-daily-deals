@@ -7,6 +7,9 @@ const mailjet = new Mailjet({
     apiSecret: process.env.MJ_APIKEY_PRIVATE
   });
 
+const mailFrom = process.env.EMAIL_FROM;
+const mailTo = process.env.EMAIL_TO;
+
 const sites = ['digitec', 'galaxus'];
 
 exports.execute = (event, context) => {
@@ -34,12 +37,12 @@ exports.execute = (event, context) => {
                 "Messages": [
                     {
                         "From": {
-                            "Email": "*****",
+                            "Email": mailFrom,
                             "Name": "Automation co-pilot"
                         },
                         "To": [
                             {
-                                "Email": "*****",
+                                "Email": mailTo,
                                 "Name": "Yauheni"
                             }
                         ],
